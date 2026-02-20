@@ -1,0 +1,19 @@
+[Desktop Entry]
+Categories=Utility
+Comment[en_GB]=This will run Simple-Linux-Upgrade-Scripts with sudo
+Comment=This will run Simple-Linux-Upgrade-Scripts with sudo
+Exec=sudo /opt/SimpleUpdater-pacman/Simple-Linux-Upgrade-Script-pacman.sh
+Icon=/opt/SimpleUpdater-pacman/Simple-Linux-Upgrade-Script-pacman.png
+GenericName[en_GB]=
+GenericName=
+MimeType=
+Name[en_GB]=Simple-Updater
+Name=Simple-Updater
+Path=
+StartupNotify=true
+Terminal=true
+TerminalOptions=
+Type=Application
+X-KDE-SubstituteUID=false
+X-KDE-Username=
+Categories=Utilities;System;
