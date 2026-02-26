@@ -61,7 +61,7 @@ update_upgrade_and_shutdown_system(){
 update_upgrade_and_hard_or_soft_reboot_system(){
     #checking for kernal updates for every major Arch-Kernel version (defualt, zen, lts, linux-hardened)
     # 2>/dev/null silences the error message, keeping the output empty
-    is_kernel_update_available=$(pacman -Qu linux linux-zen linux-lts linux-hardened linux‑cachyos linux-xanmod 2>/dev/null)
+    is_kernel_update_available=$(pacman -Qu linux linux-zen linux-lts linux-hardened linux‑cachyos linux-xanmod linux-manjaro 2>/dev/null)
 
 
     if [[ -z "$is_kernel_update_available" ]]; then
