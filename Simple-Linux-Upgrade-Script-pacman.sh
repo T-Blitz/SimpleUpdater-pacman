@@ -1,6 +1,6 @@
 #!/bin/bash
 
-arch_upgrade_Script_cript_version="V1.4.0-beta"
+arch_upgrade_Script_cript_version="V1.4.0-main"
 
 
 show_options() {
