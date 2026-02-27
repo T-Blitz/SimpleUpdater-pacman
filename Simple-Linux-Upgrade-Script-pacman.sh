@@ -1,6 +1,6 @@
 #!/bin/bash
 
-arch_upgrade_Script_cript_version="V1.1.0-beta"
+arch_upgrade_Script_cript_version="V1.4.0-beta"
 
 
 show_options() {
@@ -13,7 +13,7 @@ show_options() {
 
     echo "4) Update,Upgrade & Shutting down the System."
     echo ""
-    #TODO echo "?) Update, Upgrade, SOFT-Rebooting & Sleep the System "
+    #TODO echo "?) Update, Upgrade, SOFT-Rebooting & Sleep the System (Maybe?)"
 
     echo "u) Reboot to UEFI/BIOS, no Update."
     echo "0) Exit. ᗜ˰ᗜ"
@@ -60,6 +60,7 @@ update_upgrade_and_shutdown_system(){
 
 update_upgrade_and_hard_or_soft_reboot_system(){
     #checking for kernal updates for every major Arch-Kernel version (defualt, zen, lts, linux-hardened)
+    sudo pacman -Syy
     # 2>/dev/null silences the error message, keeping the output empty
     is_kernel_update_available=$(pacman -Qu linux linux-zen linux-lts linux-hardened linux‑cachyos linux-xanmod linux-manjaro 2>/dev/null)
 
@@ -68,15 +69,17 @@ update_upgrade_and_hard_or_soft_reboot_system(){
 
         # Kernal Update available, set case to 0
         kernal_update_status="0"
-        echo "No hard reboot needed!"
+        echo "--- No hard reboot needed! ---"
         echo "Kernel up‑to‑date! ᗜˬᗜ"
+        sleep 1
     else
 
         # Kernal Update available, set case to 1
         kernal_update_status="1"
-        echo "Hard Reboot Needed"
+        echo "--- Hard Reboot Needed ---"
         echo "New Kernel update available! ᗜ˰ᗜ"
         echo "$is_kernel_update_available"
+        sleep 1
     fi
 
     # Update Upgrade and clen up
