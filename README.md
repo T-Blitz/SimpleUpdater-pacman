@@ -3,7 +3,6 @@
 A Simple script that helps you with keeping your pacman based Linux Up to date. <ins>Includes Flatpacks as well.</ins>
 
 <br/>
-<br/>
 
 ## Installation:
 
