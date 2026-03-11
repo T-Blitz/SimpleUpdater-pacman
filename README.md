@@ -53,4 +53,6 @@ If you use your PC often, don't shut it down, but select "Sleep".<br/>
 This will make sure your Hardware is not "shocked" awake every day.<br/>
 Sleep keeps the RAM also on. Not dumping everything to your swap.<br/>
 
+<br/>
+<br/>
 _*Custom "SimpleUpdater.desktop"(pacman version) file loge made by me, using stock images and Gimp. (WITHOUT AI!)_
