@@ -1,9 +1,10 @@
 # SimpleUpdater-pacman
- A Simple script that helps you with keeping your pacman based Linux Up to date. <ins>Includes Flatpacks as well.</ins>
+### Doing what Windows is struckling with
+A Simple script that helps you with keeping your pacman based Linux Up to date. <ins>Includes Flatpacks as well.</ins>
 
  
- # Simple-Linux-Upgrade-Scripts
-### Doing what Windows is struckling with
+## Installation
+
 
 Make sure you are using pacman and not apt, npm, etc!<br/>
 <br/>
