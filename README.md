@@ -2,15 +2,7 @@
 ### Doing what Windows is struckling with
 A Simple script that helps you with keeping your pacman based Linux Up to date. <ins>Includes Flatpacks as well.</ins>
 
-Make sure you are using pacman and not apt, npm, etc!
-Clone the Repo:
-```
- git clone https://github.com/T-Blitz/SimpleUpdater-pacman.git
-```
-
-Copy/Move the "SimpleUpdater-pacman" folder to your /opt/ folder. opt has been chosen because it's a write protected folder.
-Make sure "Simple-Linux-Upgrade-Script-pacman.sh" is markt as executable.
-Copy the "SimpleUpdater.desktop" file to your Desktop and mark it as executable.
+<br/>
 
 ## Installation:
 
@@ -29,19 +21,20 @@ sudo mv SimpleUpdater-pacman /opt/
 ```
 Change directory to the SimpleUpdater-pacman folder in /opt/:<br/>
 ```
-sudo cp -r SimpleUpdater-pacman /opt/
 cd /opt/SimpleUpdater-pacman
 ```
 Make sure "Simple-Linux-Upgrade-Script-pacman.sh" is markt as executable and has no write permissions:<br/>
 ```
 sudo chmod u-w,u+x Simple-Linux-Upgrade-Script-pacman.sh
-sudo cp -a SimpleUpdater.desktop /home/$USER/Desktop/
-cd /home/$USER/Desktop/
-sudo chmod u-w,u+x SimpleUpdater.desktop
+```
+
+Copy the "SimpleUpdater.desktop" file to your Desktop:<br/>
 
 ```
-Run the "SimpleUpdater.desktop" each time you wish to upgrade your system or even just to reboot to UEFI/BIOS.
+sudo cp -a SimpleUpdater.desktop /home/$USER/Desktop/
+```
 
+Change directory to your Desktop:<br/>
 
 ```
 cd /home/$USER/Desktop/
@@ -62,4 +55,5 @@ Sleep keeps the RAM also on. Not dumping everything to your swap.<br/>
 
 <br/>
 <br/>
+
 _*Custom "SimpleUpdater.desktop"(pacman version) file loge made by me, using stock images and Gimp. (WITHOUT AI!)_
