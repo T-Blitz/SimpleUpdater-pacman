@@ -55,4 +55,5 @@ Sleep keeps the RAM also on. Not dumping everything to your swap.<br/>
 
 <br/>
 <br/>
+<br/>
 _*Custom "SimpleUpdater.desktop"(pacman version) file loge made by me, using stock images and Gimp. (WITHOUT AI!)_
