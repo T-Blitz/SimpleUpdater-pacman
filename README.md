@@ -4,6 +4,7 @@ A Simple script that helps you with keeping your pacman based Linux Up to date. 
 
 <br/>
 <br/>
+
 ## Installation:
 
 
