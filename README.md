@@ -45,7 +45,7 @@ Mark "SimpleUpdater.desktop" as executable and remove write permissions:<br/>
 sudo chmod u-w,u+x SimpleUpdater.desktop
 ```
 <br/>
-Run the "SimpleUpdater.desktop" each time you wish to upgrade your system or even just to reboot to UEFI/BIOS.
+Run the "SimpleUpdater.desktop" each time you wish to upgrade your system or even just to reboot to UEFI/BIOS.<br/>
 <br/>
 
 My recommendations is to always Update and Soft/Hard-Reboot your system at the start of your session.<br/>
