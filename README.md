@@ -11,20 +11,34 @@ Clone the Repo:
  git clone https://github.com/T-Blitz/SimpleUpdater-pacman.git
 ```
 
-Copy/Move the "SimpleUpdater-pacman" folder to your /opt/ folder.<br/> 
-opt has been chosen because it's a write protected folder.<br/>
-Make sure "Simple-Linux-Upgrade-Script-pacman.sh" is markt as executable.<br/>
-Copy the "SimpleUpdater.desktop" file to your Desktop and mark it as executable.<br/>
+Move the "SimpleUpdater-pacman" folder to your /opt/ folder:<br/> 
+("/opt/" has been chosen because it's a write protected folder.)<br/>
+```
+sudo mv SimpleUpdater-pacman /opt/
+```
+Change directory to the SimpleUpdater-pacman folder in /opt/:<br/>
+```
+cd /opt/SimpleUpdater-pacman
+```
+Make sure "Simple-Linux-Upgrade-Script-pacman.sh" is markt as executable and has no write permissions<br/>
+```
+sudo chmod u-w,u+x Simple-Linux-Upgrade-Script-pacman.sh
+```
 
-Mark the script as executable and remove write permissions:
-
+Copy the "SimpleUpdater.desktop" file to your Desktop:<br/>
 
 ```
-sudo cp -r SimpleUpdater-pacman /opt/
-cd /opt/SimpleUpdater-pacman
-sudo chmod u-w,u+x Simple-Linux-Upgrade-Script-pacman.sh
 sudo cp -a SimpleUpdater.desktop /home/$USER/Desktop/
+```
+
+Change directory to your Desktop:<br/>
+
+```
 cd /home/$USER/Desktop/
+```
+Mark "SimpleUpdater.desktop" as executable and remove write permissions:<br/>
+
+```
 sudo chmod u-w,u+x SimpleUpdater.desktop
 ```
 Run the "SimpleUpdater.desktop" each time you wish to upgrade your system or even just to reboot to UEFI/BIOS.
