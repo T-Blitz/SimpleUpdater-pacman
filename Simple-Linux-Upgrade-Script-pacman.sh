@@ -1,22 +1,22 @@
 #!/bin/bash
 
-arch_upgrade_Script_cript_version="V1.4.0-main"
+arch_upgrade_Script_cript_version="V1.5.0-main"
 
 
 show_options() {
-    echo "1) Update, Upgrade & exit."
-    echo ""
+    echo "|"
+    echo "|- 1) Update, Upgrade & exit."
+    echo "|"
 
-    echo "2) Update, Upgrade & SOFT/HARDS-Rebooting the System."
-    echo "3) Update, Upgrade & Hardware-Rebooting the System."
-    echo ""
+    echo "|- 2) Update, Upgrade & SOFT/HARDS-Rebooting the System."
+    echo "|- 3) Update, Upgrade & Hardware-Rebooting the System."
+    echo "|"
 
-    echo "4) Update,Upgrade & Shutting down the System."
-    echo ""
-    #TODO echo "?) Update, Upgrade, SOFT-Rebooting & Sleep the System (Maybe?)"
+    echo "|- 4) Update,Upgrade & Shutting down the System."
+    echo "|"
 
-    echo "u) Reboot to UEFI/BIOS, no Update."
-    echo "0) Exit. ᗜ˰ᗜ"
+    echo "|- u) Reboot to UEFI/BIOS, no Update."
+    echo "|- 0) Exit. ᗜ˰ᗜ"
 }
 
 update_and_upgrade_system() {
@@ -58,9 +58,33 @@ update_upgrade_and_shutdown_system(){
 
 }
 
+
+check_for_Kernel_update_and_recommend_backup(){
+
+    is_kernel_update_available=$(pacman -Qu linux linux-zen linux-lts linux-hardened linux‑cachyos linux-xanmod linux-manjaro 2>/dev/null)
+
+    if [[ -z "$is_kernel_update_available" ]]; then
+
+        # Kernal Update available.
+        echo "-> No hard reboot needed!"
+        echo "-> Kernel up‑to‑date! ᗜˬᗜ"
+
+        #sleep 1
+    else
+
+        # Kernal Update available, warn user about it and ask them to make a backup.
+        echo "-> Hard Reboot Needed, System-Backup recommended!"
+        echo "-> New Kernel update available! $is_kernel_update_available ᗜ˰ᗜ"
+
+        #sleep 1
+    fi
+
+
+}
+
 update_upgrade_and_hard_or_soft_reboot_system(){
     #checking for kernal updates for every major Arch-Kernel version (defualt, zen, lts, linux-hardened)
-    sudo pacman -Syy
+    #sudo pacman -Syy
     # 2>/dev/null silences the error message, keeping the output empty
     is_kernel_update_available=$(pacman -Qu linux linux-zen linux-lts linux-hardened linux‑cachyos linux-xanmod linux-manjaro 2>/dev/null)
 
@@ -69,15 +93,11 @@ update_upgrade_and_hard_or_soft_reboot_system(){
 
         # Kernal Update available, set case to 0
         kernal_update_status="0"
-        echo "--- No hard reboot needed! ---"
-        echo "Kernel up‑to‑date! ᗜˬᗜ"
         sleep 1
     else
 
         # Kernal Update available, set case to 1
         kernal_update_status="1"
-        echo "--- Hard Reboot Needed ---"
-        echo "New Kernel update available! ᗜ˰ᗜ"
         echo "$is_kernel_update_available"
         sleep 1
     fi
@@ -129,14 +149,28 @@ reboot_to_UEFIorBIOS(){
     sudo systemctl reboot  --firmware-setup
 }
 
-#TODO Something that Hibernates the PC after a hard or soft Reboot !!!
+
+force_database_sync_and_show_first_part_of_menu(){
+
+    clear
+    # forces database sync
+    sudo pacman -Syy
+    sleep 1
+
+    # first part of the menu
+    clear
+    echo "---> Simple-Linux-Upgrade-Script-pacman $arch_upgrade_Script_cript_version <---"
+    echo ""
+    echo $(date)
+    echo ""
+    check_for_Kernel_update_and_recommend_backup
+    echo ""
+    #echo ""
+}
 
 # Start of the Script with formating
-clear
-echo "---> Simple-Linux-Upgrade-Script-pacman $arch_upgrade_Script_cript_version <---"
-echo ""
-echo $(date)
-echo ""
+force_database_sync_and_show_first_part_of_menu
+
 show_options
 echo ""
 read -p "Choose an option: " choice
@@ -179,6 +213,8 @@ while true; do
             echo "Untill next time."
             echo ""
             echo "ᗜ˰ᗜ"
+            sleep 3
+            clear
             break
             ;;
 
@@ -188,13 +224,10 @@ while true; do
             ;;
 
         *)
-            clear
-            echo "---> Simple-Linux-Upgrade-Script-pacman $arch_upgrade_Script_cript_version <---"
-            echo ""
-            echo "!WARNING! '$choice' is a invalid option! !WARNING!"
-            echo ""
+            force_database_sync_and_show_first_part_of_menu
             show_options
             echo ""
+            echo "!WARNING! '$choice' is a invalid option! !WARNING!"
             read -p "Choose an option: " choice
             ;;
     esac
