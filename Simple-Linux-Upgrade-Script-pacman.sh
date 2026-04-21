@@ -1,7 +1,9 @@
 #!/bin/bash
 
-arch_upgrade_Script_cript_version="V1.5.0-main"
+arch_upgrade_Script_cript_version="V1.5.1-main"
 
+red=$'\033[1;31m'
+noClour=$'\033[0m'
 
 show_options() {
     echo "|"
@@ -67,14 +69,14 @@ check_for_Kernel_update_and_recommend_backup(){
 
         # Kernal Update available.
         echo "-> No hard reboot needed!"
-        echo "-> Kernel up‑to‑date! ᗜˬᗜ"
+        echo "->Kernel up‑to‑date! ᗜˬᗜ"
 
         #sleep 1
     else
 
         # Kernal Update available, warn user about it and ask them to make a backup.
-        echo "-> Hard Reboot Needed, System-Backup recommended!"
-        echo "-> New Kernel update available! $is_kernel_update_available ᗜ˰ᗜ"
+        echo "${red}-> Hard Reboot Needed, System-Backup recommended!"
+        echo "-> New Kernel update available! $is_kernel_update_available ᗜ˰ᗜ${noClour}"
 
         #sleep 1
     fi
